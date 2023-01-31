@@ -1,7 +1,6 @@
 # cloud-config
 timezone: America/New_York
 locale: en_US.UTF-8
-hostname: {0}
 manage_etc_hosts: localhost
 packages:
   - qemu-guest-agent
@@ -12,6 +11,7 @@ users:
   - name: serveradmin
     gecos: Chris Gonzalez
     primary_group: users
+    groups: [adm, admin]
     shell: /bin/bash
     sudo: ALL=(ALL) NOPASSWD:ALL
     lock_passwd: true
