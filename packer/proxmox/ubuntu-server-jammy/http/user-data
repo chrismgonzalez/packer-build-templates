@@ -1,0 +1,19 @@
+# cloud-config
+timezone: America/New_York
+locale: en_US.UTF-8
+hostname: {0}
+manage_etc_hosts: localhost
+packages:
+  - qemu-guest-agent
+  - sudo
+
+# Users. Remove default (ubuntu)
+users:
+  - name: serveradmin
+    gecos: Chris Gonzalez
+    primary_group: users
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2qxr8qV1/PgBGbPYpF6QOJy8pfyRzwkV0bUEADETrO chris@Christophers-MacBook-Pro.local
